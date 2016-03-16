@@ -70,7 +70,7 @@
     
     if (state==MCSessionStateConnected) {
         NSLog(@"接続完了,%@",peerID);
-        [self postNotificationc];
+        [self postNotificationconnectwith:peerID.displayName];
         
     }
     if (state==MCSessionStateNotConnected) {
@@ -225,15 +225,16 @@
 
 
 
--(void)postNotificationc
+-(void)postNotificationconnectwith:(NSString *)name
 {
     NSNotificationCenter *nc =
     [NSNotificationCenter defaultCenter];
-    
+    NSDictionary *dic = [NSDictionary dictionaryWithObject:name forKey:@"KEY"];
+
     // 通知する
     [nc postNotificationName:@"conn"
                       object:self
-                    userInfo:nil];
+                    userInfo:dic];
 
 }
 -(void)postNotificationDiscon

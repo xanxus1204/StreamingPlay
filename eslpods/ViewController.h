@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "MultipeerHost.h"
-@interface ViewController : UIViewController
+
+@interface ViewController : UIViewController<UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate,UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *loomTextField;
+@property (weak, nonatomic) IBOutlet UITableView *memberTable;
 
 @end
